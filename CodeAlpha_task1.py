@@ -1,6 +1,5 @@
 import random
 
-# Words and progressive hints
 words_with_hints = {
     "apple": [
         "It's a fruit.",
@@ -64,14 +63,13 @@ words_with_hints = {
     ]
 }
 
-# Pick random word and its hints
 word, hints = random.choice(list(words_with_hints.items()))
 tries = 10
 guessed = []
 hint_index = 0
 
 print("🎮 Welcome to Hangman!")
-print("Hint 1:", hints[hint_index])  # Show first hint
+print("Hint 1:", hints[hint_index]) 
 
 while tries > 0:
     display = "".join([l if l in guessed else "_ " for l in word])
@@ -92,10 +90,8 @@ while tries > 0:
         else:
             print("✅ Good guess!")
 
-    # Recalculate display after guess
     display = "".join([l if l in guessed else "_ " for l in word])
     
-    # Only show next hint if still not won and hints remain
     if display != word:
         hint_index += 1
         if hint_index < len(hints):
